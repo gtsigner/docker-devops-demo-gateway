@@ -1,0 +1,94 @@
+  满子孙代码：setInterval( function(){ DataManager.instance()._currentTotal=1.7e+300; }, 1);
+            
+              DataManager.instance()._currentTotal=1.7e+300;
+
+      成就
+
+var code = "";
+for (var i = 1; i <= 14; i++){
+	for(var j = 1; j <= 10; j++){
+		code = code + 'try{DataManager.instance().taskMap' + "[\"" + i + "_" + j + "\"]" + '.s = 1;}catch(e){console.log(i,j);}'
+	}
+}
+console.log(code);
+eval(code);
+
+
+   遗迹+商店
+
+var code = "function autoAdd(){DataManagersetTimeout('autoAdd()',1000);}var a = DataManager.instance().totalData\;for (var i in a){if(i==1){";
+var a = DataManager.instance().totalData;
+for (var i in a){
+if(i==0||i==1||i==10||i==21||i==55||i==56||i==57||i==58||i==59||i==67||i==68||i==69||i==214||i==218||i==219||i==220){
+code = code + "\r\na[" + i + "].isBuy = 1\;";
+code = code + "\r\na[" + i + "].num = 1\;";
+//code = code + "\r\nconsole.log("+i+",a[" + i + "].name,a[" + i + "].des)\;";
+}if(i>=73&&i<=77){
+code = code + "\r\na[" + i + "].isBuy = 1\;";
+code = code + "\r\na[" + i + "].num = 1\;";
+//code = code + "\r\nconsole.log("+i+",a[" + i + "].name,a[" + i + "].des)\;";
+}if(i>=62&&i<=66){
+code = code + "\r\na[" + i + "].isBuy = 1\;";
+code = code + "\r\na[" + i + "].num = 100000\;";
+//code = code + "\r\nconsole.log("+i+",a[" + i + "].name,a[" + i + "].des)\;";
+}if(i>161&&i<215&&i!=165&&i!=170&&i!=175&&i!=180&&i!=185&&i!=190&&i!=195&&i!=200&&i!=205){
+code = code + "\r\na[" + i + "].isBuy = 1\;";
+code = code + "\r\na[" + i + "].num = 1\;";
+//code = code + "\r\nconsole.log("+i+",a[" + i + "].name,a[" + i + "].des)\;";
+}
+}
+code = code + "\r\n}}";
+console.log(code);
+eval(code);
+autoAdd();
+
+
+   建筑
+
+
+var n = 1;
+var a = DataManager.instance().totalData;
+for (var i in a){
+if(i== 161 || i== 165 || i== 170 || i== 175 || i== 180 || i== 185 || i== 190 || i== 195 || i== 200 || i== 205){
+a[i].num = n;
+}
+}
+var a = DataManager.instance().gkNumList;
+for (var i in a){
+a[i] = n;
+console.log(a[i]);
+}
+DataManager.instance()._currentTotal=1.7e+300;   
+ 
+   
+
+
+
+var n = 1;
+var a = DataManager.instance().totalData;
+for (var i in a){
+if(i== 205){
+a[i].num = n;
+}
+}
+var a = DataManager.instance().totalData;
+for (var i in a){
+if(i== 205){
+a[i] = n;
+console.log(a[i]);
+}
+
+
+
+
+     清号
+var n = 1;
+var a = DataManager.instance().totalData;
+for (var i in a){
+a[i] = n;
+console.log(a[i]);
+}
+DataManager.instance()._currentTotal=0;
+
+
+
