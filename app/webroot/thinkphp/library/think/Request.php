@@ -132,7 +132,6 @@ class Request
         if (is_null($this->filter)) {
             $this->filter = Config::get('default_filter');
         }
-
         // 保存 php://input
         $this->input = file_get_contents('php://input');
     }

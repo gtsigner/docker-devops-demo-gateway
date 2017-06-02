@@ -29,6 +29,8 @@ services:
     volumes:
       - ./data/mysql:/var/lib/mysql:rw
     restart: always
+    ports:
+      - "3306:3306"
     environment:
         MYSQL_ROOT_PASSWORD: zhaojun
         MYSQL_DATABASE: package_v1
@@ -57,27 +59,24 @@ services:
     links:
       - mysql-db
       - redis-db
-      - node-server
+#      - node-server
     command: php-fpm
-  node-server:
-    image: node:6.9
-    container_name: node-server
-    volumes:
-      - ./app/noderoot:/app
-    restart: always
-    working_dir: /app
-    environment:
-        NODE_PORT: 3000
-    command: bash -c "npm instsall && node bin/www "
-    expose:
-      - "3000"
+#  node-server:
+#    image: node:6.9
+#    container_name: node-server
+#    volumes:
+#      - ./app/noderoot:/app
+#    working_dir: /app
+#    environment:
+#        NODE_PORT: 3000
+#    command: "/bin/bash -c 'npm install pm2 -g --registry=https://registry.npm.taobao.org && pm2 start ./bin/www --no-daemon --watch'"
+#    expose:
+#      - "3000"
 ##第一次迁移数据所需的镜像 version0.3 README手动迁移
 #  mysql-database:
 #    image: mysql:5.7
 #    volumes:
 #      - ./data/backup:/data/backup
-
-
 volumes:
   wwwroot:
     driver: local

@@ -1776,21 +1776,21 @@ class Query
     }
 
     // 获取当前数据表字段信息
-    public function getTableFields($table = '')
+    public function getTableFields($options)
     {
-        return $this->getTableInfo($table ?: $this->getOptions('table'), 'fields');
+        return $this->getTableInfo($options['table'], 'fields');
     }
 
     // 获取当前数据表字段类型
-    public function getFieldsType($table = '')
+    public function getFieldsType($options)
     {
-        return $this->getTableInfo($table ?: $this->getOptions('table'), 'type');
+        return $this->getTableInfo($options['table'], 'type');
     }
 
     // 获取当前数据表绑定信息
-    public function getFieldsBind($table = '')
+    public function getFieldsBind($options)
     {
-        $types = $this->getFieldsType($table);
+        $types = $this->getFieldsType($options);
         $bind  = [];
         if ($types) {
             foreach ($types as $key => $type) {
@@ -2117,10 +2117,9 @@ class Query
      * 批量插入记录
      * @access public
      * @param mixed $dataSet 数据集
-     * @param boolean $replace  是否replace
      * @return integer|string
      */
-    public function insertAll(array $dataSet, $replace = false)
+    public function insertAll(array $dataSet)
     {
         // 分析查询表达式
         $options = $this->parseExpress();
@@ -2128,7 +2127,7 @@ class Query
             return false;
         }
         // 生成SQL语句
-        $sql = $this->builder->insertAll($dataSet, $options, $replace);
+        $sql = $this->builder->insertAll($dataSet, $options);
         // 获取参数绑定
         $bind = $this->getBind();
         if ($options['fetch_sql']) {

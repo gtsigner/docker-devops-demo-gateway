@@ -235,7 +235,7 @@ class Url
         $rootDomain = Config::get('url_domain_root');
         if (true === $domain) {
             // 自动判断域名
-            $domain = Config::get('app_host') ?: $request->host();
+            $domain = $request->host();
 
             $domains = Route::rules('domain');
             if ($domains) {
@@ -265,14 +265,14 @@ class Url
 
         } else {
             if (empty($rootDomain)) {
-                $host       = Config::get('app_host') ?: $request->host();
+                $host       = $request->host();
                 $rootDomain = substr_count($host, '.') > 1 ? substr(strstr($host, '.'), 1) : $host;
             }
             if (substr_count($domain, '.') < 2 && !strpos($domain, $rootDomain)) {
                 $domain .= '.' . $rootDomain;
             }
         }
-        return ($request->isSsl() || Config::get('is_https') ? 'https://' : 'http://') . $domain;
+        return ($request->isSsl() ? 'https://' : 'http://') . $domain;
     }
 
     // 解析URL后缀

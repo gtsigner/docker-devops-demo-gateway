@@ -21,12 +21,13 @@
         "topthink/think-image": "^1.0",
         "topthink/think-migration": "^1.0",
         "topthink/think-captcha": "^1.0",
-        "topthink/think-mongo": "^1.0",
+        "topthink/think-mongo": "^2.0",
         "topthink/think-testing": "^1.0",
         "topthink/think-worker": "^1.0",
         "topthink/think-helper": "^1.0",
         "topthink/think-queue": "^1.0",
-        "topthink/think-angular": "^1.0"
+        "topthink/think-angular": "^1.0",
+        "urmaul/httpclient": "^1.1"
     },
     "extra": {
         "think-path": "thinkphp"
