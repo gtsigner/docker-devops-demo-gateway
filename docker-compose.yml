@@ -2,9 +2,9 @@ version:  '3.0'
 services:
   nginx:
     build: ./dockerfiles/nginx/
-    container_name: nginx-server
+    container_name: nginx
     ports:
-      - "81:80"
+      - "8888:80"
     links:
       - "php-fpm"
     volumes:
@@ -61,6 +61,15 @@ services:
       - redis-db
 #      - node-server
     command: php-fpm
+  crond:
+    build: ./dockerfiles/crond/
+    container_name: crond
+    volumes:
+      - ./dockerfiles/crond/task.sh:/server/task.sh
+      - ./logs/crond:/server/logs:rw
+    links:
+      - nginx
+    command: /bin/bash /server/task.sh
 #  node-server:
 #    image: node:6.9
 #    container_name: node-server

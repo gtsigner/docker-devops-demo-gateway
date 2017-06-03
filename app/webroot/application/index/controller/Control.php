@@ -35,31 +35,7 @@ class Control extends Auth
         }
     }
 
-    public function task_flush()
-    {
-        set_time_limit(0);
-        $account = model('ey_coin_account')->where(['coin_status' => 0])->lock(true)->find();
-        if (!$account) {
-            return "队列为空";
-        }
-        $control = new \AccountControl();
-        $info = $control->get_user_api($account->account_url);
-        $ret = $control->get_jsCoin($info['h'], 0.5);
-        $ret2 = $control->get_cjCoin($info['h'], 0.5);
-        //查询余额入库
-        $userCoinInfo = $control->get_user_info($info['h'], $account->platform);
-        $account->coin_status = 1;
-        $account->success_js += $ret['count'];
-        $account->success_cj += $ret2['count'];
-        $account->score = $userCoinInfo['score'];
-        $account->coins = $userCoinInfo['gc'];
-        $upRet = $account->save();
-        if ($upRet) {
-            $this->success("刷成功");
-        } else {
-            $this->error("刷失败");
-        }
-    }
+
 
     public function get_user_info()
     {
