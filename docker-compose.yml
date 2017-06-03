@@ -4,7 +4,7 @@ services:
     build: ./dockerfiles/nginx/
     container_name: nginx
     ports:
-      - "8888:80"
+      - "8080:80"
     links:
       - "php-fpm"
     volumes:
@@ -17,7 +17,7 @@ services:
       - redis-db
     restart: always
     expose:
-      - "81"
+      - "8080"
       - "6379"
       - "3306"
       - "9000"
