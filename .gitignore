@@ -8,4 +8,5 @@
 /logs/mysql/*
 /logs/nginx/*
 /logs/php-fpm/*
+/logs/crond/*
 /logs/redis/*
