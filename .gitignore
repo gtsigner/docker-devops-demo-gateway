@@ -1,6 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 /.idea
-/data/mysql/*
+#/data/mysql/*
 /data/redis/*
 /data/backup/*
 !/data/backup/data-default.sql
