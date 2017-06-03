@@ -46,7 +46,8 @@ class Account extends Auth
     public function index()
     {
         $p = $this->request->request('p');
-        $data_list = model('ey_coin_account')->where([])->page($p, $this->page_limit)->order('id DESC')->select();
+        $data_list = model('ey_coin_account')->where([])->order('id DESC')->paginate($this->page_limit);
+        $this->assign('page', $data_list->render());
         $this->assign('data_list', $data_list);
         return $this->fetch();
     }

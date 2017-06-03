@@ -43,6 +43,9 @@
             {/foreach}
             </tbody>
         </table>
+        <div class="page text-center">
+            {$page}
+        </div>
     </div>
 {/block}
 
