@@ -24,10 +24,8 @@
             <li><a href="{:url('control/full_coin')}">添加账号</a></li>
             <li><a href="{:url('account/import_account')}">批量加号</a></li>
             <li><a href="{:url('account/index')}">账号管理</a></li>
-            <li><a href="{:url('control/index')}">功能中心</a></li>
-            <li><a href="{:url('user/index')}">个人中心</a></li>
-
-
+            <li><a href="{:url('account/clear')}">一键清理</a></li>
+            <li><a href="{:url('user/index')}">代理中心</a></li>
         </ul>
     </div>
 </nav>

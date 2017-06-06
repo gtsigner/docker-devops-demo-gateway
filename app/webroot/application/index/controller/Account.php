@@ -46,10 +46,16 @@ class Account extends Auth
     public function index()
     {
         $p = $this->request->request('p');
-        $data_list = model('ey_coin_account')->where([])->order('id DESC')->paginate($this->page_limit);
+        $data_list = model('ey_coin_account')->where()->order('id DESC')->paginate($this->page_limit);
         $this->assign('page', $data_list->render());
         $this->assign('data_list', $data_list);
         return $this->fetch();
+    }
+
+    public function clear()
+    {
+        $delRet = model("ey_coin_account")->where([])->delete();
+        $this->success("清理成功");
     }
 
     //删除
